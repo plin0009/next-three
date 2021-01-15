@@ -32,7 +32,6 @@ const Cube: React.FC<MeshProps> = (props) => {
     }
     mesh.current.rotation.x += rotationSpeed;
     mesh.current.rotation.y += rotationSpeed;
-    console.log(mesh.current.scale.x);
     if (mesh.current.scale.x - desiredScale < -tolerance) {
       mesh.current.scale.add(new Vector3(speed, speed, speed));
     } else if (mesh.current.scale.x - desiredScale > tolerance) {
