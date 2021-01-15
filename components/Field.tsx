@@ -2,13 +2,15 @@ import { useRef } from "react";
 import { MeshProps, useFrame } from "react-three-fiber";
 import { DoubleSide, Mesh, PlaneGeometry, Vector3 } from "three";
 
-let num = 40;
+// make these props, use useMemo to store vectors
+let widthSegments = 40;
+let heightSegments = 20;
 
 const heights = ((size: number): Vector3[] => {
   let vectors = [];
-  let start = -(num / 2) * size;
-  for (let x = 0; x <= num; x++) {
-    for (let y = 0; y <= num; y++) {
+  let start = -(widthSegments / 2) * size;
+  for (let x = 0; x <= widthSegments; x++) {
+    for (let y = 0; y <= heightSegments; y++) {
       vectors.push(
         new Vector3(
           start + x * size,
@@ -33,7 +35,11 @@ const Field: React.FC<MeshProps> = (props) => {
 
   return (
     <mesh ref={mesh} {...props}>
-      <planeGeometry ref={pg} args={[15, 15, num, num]} vertices={heights} />
+      <planeGeometry
+        ref={pg}
+        args={[15, 15, heightSegments, widthSegments]}
+        vertices={heights}
+      />
       <meshStandardMaterial
         attach="material"
         color="#ff3323"

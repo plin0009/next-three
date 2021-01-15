@@ -13,14 +13,14 @@ const Home = () => {
       <Canvas
         concurrent
         gl={{ antialias: false }}
-        camera={{ position: [0, 0, -2], fov: 60 }}
+        camera={{ position: [0, 0.4, -2], fov: 60 }}
         className={styles.container}
       >
         <ambientLight intensity={0.2} />
         <pointLight position={[0, 35, 5]} intensity={2} />
-        <Field position={[0, -3, 0]} />
-        <Cube position={[-1.5, -0.5, 5]} />
-        <Cube position={[1.5, 1, 6]} />
+        <Field position={[0, -3, -2]} />
+        <Cube position={[-1.5, -0.5, 6]} />
+        <Cube position={[1.5, 1, 8]} />
       </Canvas>
     </>
   );
